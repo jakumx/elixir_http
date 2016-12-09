@@ -2,4 +2,4 @@
 
 `mix deps.get`
 
-'mix test'
+`mix test`

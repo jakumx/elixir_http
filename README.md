@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ElixirHttp
 
 **TODO: Add description**
@@ -22,3 +23,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     end
     ```
 
+=======
+# elixir_http
+elixir http server and shell command
+>>>>>>> baa8546ca460a3e17a38647808c754164eb7796a

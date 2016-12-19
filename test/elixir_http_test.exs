@@ -8,7 +8,7 @@ defmodule ElixirHttpTest do
  		afterDate = startDate + 1000
 
  		{count, arryDiff} = Recursion.do_multiple_times(0,[], startDate, afterDate, false)
- 		Recursion.show_logs(count, arryDiff)
+ 		Recursion.show_logs(count, arryDiff, "sync")
 
  	end
 
@@ -18,7 +18,7 @@ defmodule ElixirHttpTest do
  		afterDate = startDate + 1000
 
  		{count, arryDiff} = Recursion.do_multiple_times(0,[], startDate, afterDate, true)
- 		Recursion.show_logs(count, arryDiff)
+ 		Recursion.show_logs(count, arryDiff, "async")
 
  	end
 
@@ -29,7 +29,7 @@ defmodule ElixirHttpTest do
 		endDate = System.monotonic_time(:milliseconds)
 
 		diff = endDate - startDate
-		IO.inspect "------ diff: #{diff} ms -------"
+		IO.inspect "GET /exec ->  #{diff} ms"
 
     	assert HTTPotion.Response.success?(response)
 
@@ -58,7 +58,8 @@ defmodule Recursion do
 		{count - 1, Enum.drop(arryDiff, -1)}
 	end
 
-  	def show_logs(count, arryDiff) do
+  	def show_logs(count, arryDiff, title) do
+  		IO.inspect "----- #{title} ------"
   		IO.inspect "counts: #{count}"
   		IO.inspect "sum: #{Enum.sum(arryDiff)}"
   		IO.inspect "prom: #{Enum.sum(arryDiff)/count}"

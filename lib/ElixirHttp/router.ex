@@ -1,8 +1,8 @@
 defmodule ElixirHttp.Router do
 	use Plug.Router
-	require Logger
+	# require Logger
 
-	plug Plug.Logger
+	# plug Plug.Logger
 	plug :match
 	plug :dispatch
 
